@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=../profile.schema.json
+# BLEam light profile. Settings > Write profile template writes a fully commented
+# template.yaml beside this file. A profile that fails validation does not appear in
+# the app's profile picker; the Debug Logs tab names what is wrong with it.
+name: Oiyn RGB Table Lamp
+description: Custom BLE RGB light
+serviceUuid: 0000fff0-0000-1000-8000-00805f9b34fb
+characteristicUuid: 0000fff3-0000-1000-8000-00805f9b34fb
+colorMappings:
+- state: Available
+  color: '#00FF00'
+  description: Available for chat
+  brightness: 89
+- state: Busy
+  color: '#FF0000'
+  description: In a meeting or busy
+  brightness: 82
+- state: DoNotDisturb
+  color: '#FF0000'
+  description: Do not disturb
+  brightness: 82
+- state: Away
+  color: '#FF8000'
+  description: Away from desk
+  brightness: 82
+- state: BeRightBack
+  color: '#FF8000'
+  description: Be right back
+  brightness: 84
+- state: InACall
+  color: '#0000FF'
+  description: In a call
+  brightness: 255
+- state: InAMeeting
+  color: '#FF00FF'
+  description: In a meeting
+  brightness: 255
+- state: Offline
+  color: '#696969'
+  description: Offline
+  brightness: 255
+- state: PresenceUnknown
+  color: '#D3D3D3'
+  description: Status unknown
+  brightness: 255
+- state: Unknown
+  color: '#FFFFFF'
+  description: Status unknown
+  brightness: 255
+customCommands:
+  colorCommand: 1D0501{R:X2}{G:X2}{B:X2}FFFFD1
+  brightnessCommand: 1D0100{BR:X2}FFFFFFFFD1
+  wakeCommand: 1D04000FFFFFFFFFD1

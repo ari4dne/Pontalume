@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=../profile.schema.json
+# BLEam light profile.
+# A file that fails validation will not appear in the app's profile picker.
+name: Lumin LED Lamp
+description: Lumin LED lamp BLE configuration
+serviceUuid: 0000ffd5-0000-1000-8000-00805f9b34fb
+characteristicUuid: 0000ffd9-0000-1000-8000-00805f9b34fb
+colorMappings:
+- state: Available
+  color: '#00FF00'
+  description: Available
+  brightness: 255
+- state: Busy
+  color: '#FF0000'
+  description: Busy
+  brightness: 255
+- state: DoNotDisturb
+  color: '#8000FF'
+  description: Do Not Disturb
+  brightness: 255
+- state: InACall
+  color: '#FF0000'
+  description: In a Call
+  brightness: 255
+- state: InAMeeting
+  color: '#FF0000'
+  description: In a Meeting
+  brightness: 255
+- state: Away
+  color: '#FFB000'
+  description: Away
+  brightness: 255
+- state: BeRightBack
+  color: '#FFB000'
+  description: Be Right Back
+  brightness: 255
+- state: Offline
+  color: '#000000'
+  description: Offline
+  brightness: 255
+- state: PresenceUnknown
+  color: '#FFFFFF'
+  description: Status Unknown
+  brightness: 255
+- state: Unknown
+  color: '#FFFFFF'
+  description: Unknown
+  brightness: 255
+customCommands:
+  colorCommand: 56{R:X2}{G:X2}{B:X2}00f0aa
+  lampOn: cc2333
+  lampOff: cc2433
+  pulsatingRed: bb260444
+  redColor: 56ff000000f0aa
+  greenColor: 5600ff0000f0aa
+  yellowColor: 56ffb00000f0aa

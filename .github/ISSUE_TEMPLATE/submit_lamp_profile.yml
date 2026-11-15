@@ -1,0 +1,63 @@
+name: 🎨 Submit a lamp profile
+description: Share a profile you've tested with your light, without using git.
+title: "[Profile]: "
+labels: ["lamp profile"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing a profile! Paste it below and I'll add it to the repo, with credit. If you use git, you can [open a pull request](https://github.com/ari4dne/BLEam/blob/main/CONTRIBUTING.md#submitting-a-lamp-profile) instead.
+
+        See [Submitting a lamp profile](https://github.com/ari4dne/BLEam/blob/main/CONTRIBUTING.md#submitting-a-lamp-profile) for where profiles go and what to check first.
+  - type: input
+    id: brand
+    attributes:
+      label: Brand
+      description: Leave blank for unbranded or clone lights.
+  - type: input
+    id: model
+    attributes:
+      label: Light name and model
+    validations:
+      required: true
+  - type: input
+    id: ble-name
+    attributes:
+      label: Bluetooth name
+      description: The name your light shows when you scan for it. If the end of the name looks unique to your light (like a code or part of an address), leave that part out.
+    validations:
+      required: true
+  - type: input
+    id: bought-from
+    attributes:
+      label: Where did you buy it? (optional)
+      description: Only if you're comfortable sharing. The store, and a link to the product page if you have one, helps others find lights that work. It can reveal where you live, so leave it blank if you'd rather.
+  - type: textarea
+    id: profile
+    attributes:
+      label: Your profile
+      description: Paste the whole YAML file.
+      render: yaml
+    validations:
+      required: true
+  - type: input
+    id: credit
+    attributes:
+      label: Credit (optional)
+      description: The name or GitHub handle to credit. I'll add it to your profile as a top-level `author:` line. (BLEam has no author field and drops this line if a profile is re-saved in the app.) Leave blank to stay anonymous.
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes (optional)
+      description: Anything that works differently, or doesn't work, with this light.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I tested this profile with a real light.
+          required: true
+        - label: It contains no MAC addresses, serial numbers, or other device IDs.
+          required: true
+        - label: I agree to release this profile under [CC0 1.0](https://github.com/ari4dne/BLEam/blob/main/profiles/LICENSE), so anyone can use it freely.
+          required: true

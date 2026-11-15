@@ -1,0 +1,91 @@
+name: 🐞 Bug report
+description: Something in BLEam isn't working as expected.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please [search existing issues](https://github.com/ari4dne/BLEam/issues) first. If it's already reported, a 👍 or a comment with your details helps just as much.
+
+        English is easiest for me, but you're welcome to write in any language.
+
+        **Security or privacy problem?** Please don't post it here. [Report it privately](https://github.com/ari4dne/BLEam/security/advisories/new) instead.
+  - type: input
+    id: bleam-version
+    attributes:
+      label: BLEam version
+      placeholder: e.g. 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: windows-version
+    attributes:
+      label: Windows version
+      placeholder: e.g. Windows 11 24H2
+    validations:
+      required: true
+  - type: dropdown
+    id: teams-type
+    attributes:
+      label: Which Teams do you use?
+      options:
+        - New Teams
+        - Classic Teams
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: teams-version
+    attributes:
+      label: Teams version number
+      description: In Teams, open Settings → About Teams.
+    validations:
+      required: true
+  - type: input
+    id: light
+    attributes:
+      label: Your light
+      description: Brand and model, or the name it shows in a Bluetooth scan for unbranded lights.
+    validations:
+      required: true
+  - type: input
+    id: profile
+    attributes:
+      label: Lamp profile used
+      description: Which profile file did you use? If you made your own, say so.
+      placeholder: e.g. profiles/generic/example-light.yaml
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What you did, and what BLEam or your light did.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        > ⚠️ **Please check before you post.** BLEam tries to remove personal details from its logs, but that clean-up is basic. Before attaching a log or export, look through it and remove any **MAC addresses** (like `A4:C1:38:xx:xx:xx`), device serial numbers, or other unique IDs.
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostic export from BLEam
+      description: Open the **Debug Logs** tab, click **Export Logs**, then click **Reveal Exported Log** to open the folder with the file. The export covers up to the last 2 days. Drag the file into this box to attach it.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched existing issues and didn't find this bug.
+          required: true
+        - label: I checked my diagnostic export and removed any MAC addresses, serial numbers, or other unique IDs.
+          required: true

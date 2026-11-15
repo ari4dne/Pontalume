@@ -1,0 +1,35 @@
+name: 💡 Idea or feedback
+description: Suggest a feature, or tell me what could work better.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing your thoughts! Please [search existing issues](https://github.com/ari4dne/BLEam/issues) first. If someone has already suggested it, a 👍 or a comment helps just as much.
+
+        English is easiest for me, but you're welcome to write in any language.
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like BLEam to do?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why would it help you?
+      description: Tell me how you use BLEam, and what this would change for you.
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: Screenshots, examples, or links are welcome.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched existing issues and didn't find this idea.
+          required: true

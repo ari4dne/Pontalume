@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bleam.app/schemas/profile.schema.json",
+  "title": "BLEam light profile",
+  "description": "A BLEam light profile: which lamp to talk to, which colour each Teams presence state maps to, and the raw bytes to send. This schema is an editor aid; BLEam validates every profile itself when it loads one, and names any problem it finds on the app's Debug Logs tab.",
+  "type": "object",
+  "required": [
+    "name",
+    "serviceUuid",
+    "characteristicUuid",
+    "colorMappings",
+    "customCommands"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Display name, shown in the app's profile picker."
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional free text. May be blank or absent."
+    },
+    "serviceUuid": {
+      "$ref": "#/$defs/uuid",
+      "description": "The lamp's GATT service UUID."
+    },
+    "characteristicUuid": {
+      "$ref": "#/$defs/uuid",
+      "description": "The writable characteristic on that service."
+    },
+    "colorMappings": {
+      "type": "array",
+      "description": "One entry per presence state - all ten, no duplicates.",
+      "minItems": 10,
+      "maxItems": 10,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/colorMapping" }
+    },
+    "customCommands": {
+      "type": "object",
+      "description": "The bytes sent to the lamp. Keys beyond the three below are preserved on save and never sent.",
+      "required": ["colorCommand"],
+      "properties": {
+        "colorCommand": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Required. Sent on every presence change. Accepts {R:X2}, {G:X2}, {B:X2} and {BR:X2}.",
+          "pattern": "^(\\s|[0-9A-Fa-f]|\\{R:X2\\}|\\{G:X2\\}|\\{B:X2\\}|\\{BR:X2\\})+$"
+        },
+        "brightnessCommand": {
+          "type": "string",
+          "description": "Optional. Sent after colorCommand when non-blank; its presence is also what enables the brightness slider. Accepts {BR:X2} only - {B:X2} means blue, and {A:X2} was removed.",
+          "pattern": "^$|^(\\s|[0-9A-Fa-f]|\\{BR:X2\\})+$"
+        },
+        "wakeCommand": {
+          "type": "string",
+          "description": "Optional. Sent once when the lamp becomes ready. Takes no substitution tokens.",
+          "pattern": "^$|^(\\s|[0-9A-Fa-f])+$"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$"
+    },
+    "presenceState": {
+      "type": "string",
+      "description": "Case-sensitive.",
+      "enum": [
+        "Unknown",
+        "Available",
+        "Busy",
+        "DoNotDisturb",
+        "Away",
+        "BeRightBack",
+        "InACall",
+        "InAMeeting",
+        "Offline",
+        "PresenceUnknown"
+      ]
+    },
+    "colorMapping": {
+      "type": "object",
+      "required": ["state", "color"],
+      "properties": {
+        "state": { "$ref": "#/$defs/presenceState" },
+        "color": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "#RRGGBB. Alpha is not carried."
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional free text. May be blank or absent."
+        },
+        "brightness": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255,
+          "description": "Optional; defaults to 255."
+        }
+      }
+    }
+  }
+}

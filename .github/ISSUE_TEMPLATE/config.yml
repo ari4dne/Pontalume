@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔒 Report a security, privacy, or conduct problem
+    url: https://github.com/ari4dne/BLEam/security/advisories/new
+    about: Please report these privately, not in a public issue.
+  - name: 🎨 My light isn't supported yet
+    url: https://github.com/ari4dne/BLEam/blob/main/guides/add-your-lamp.md
+    about: Make your own lamp profile with the step-by-step guide, then share it.

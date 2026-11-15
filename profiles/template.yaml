@@ -1,0 +1,95 @@
+# ---------------------------------------------------------------------------
+# BLEam profile template. Copy this file, rename it, and edit it - the file's
+# `name:` is what the app shows in its profile picker.
+#
+# Every key below is required unless marked optional. A file that breaks any
+# rule here is rejected whole: it will not appear in the picker, and the Debug
+# Logs tab names each problem.
+#
+#   name                 the profile's display name.
+#   description          optional; free text, may be blank.
+#   serviceUuid          the lamp's GATT service UUID.
+#   characteristicUuid   the writable characteristic on that service.
+#   colorMappings        one entry per presence state - all ten, no duplicates:
+#                        Unknown, Available, Busy, DoNotDisturb, Away, BeRightBack, InACall, InAMeeting, Offline, PresenceUnknown.
+#                        Names are case-sensitive.
+#     state              one of the ten names above.
+#     color              #RRGGBB.
+#     description        optional; free text, may be blank.
+#     brightness         optional whole number 0-255; defaults to 255.
+#   customCommands       the bytes sent to the lamp, as plain hexadecimal:
+#                        no 0x prefix, no ':' or '-' separators, no text.
+#     colorCommand       required. Sent on every presence change.
+#     brightnessCommand  optional. Sent after colorCommand when set; its
+#                        presence is also what enables the brightness slider.
+#     wakeCommand        optional. Sent once when the lamp becomes ready.
+#
+# Substitution tokens - each means exactly one thing, everywhere:
+#     {R:X2} red     {G:X2} green     {B:X2} blue     {BR:X2} brightness
+# colorCommand accepts all four. brightnessCommand accepts {BR:X2} only.
+# wakeCommand takes no tokens. ({A:X2} was removed - use {BR:X2}.)
+#
+# An optional command left blank, as wakeCommand is below, declares the key
+# without arming it: the app sends nothing for it. Delete the key or leave it
+# blank - both mean the same thing.
+#
+# Keys the app does not recognize are kept on save and never sent, so notes
+# your lamp's documentation gave you (lampOn, lampOff, ...) survive editing.
+#
+# These comments are stripped the first time the app saves this profile; the
+# short banner below is re-written on every save. Comments you add by hand to
+# a working profile are lost the same way.
+# ---------------------------------------------------------------------------
+# yaml-language-server: $schema=./profile.schema.json
+# BLEam light profile. Settings > Write profile template writes a fully commented
+# template.yaml beside this file. A profile that fails validation does not appear in
+# the app's profile picker; the Debug Logs tab names what is wrong with it.
+name: Custom Light
+description: Template for custom BLE RGB light
+serviceUuid: 0000ffe0-0000-1000-8000-00805f9b34fb
+characteristicUuid: 0000ffe1-0000-1000-8000-00805f9b34fb
+colorMappings:
+- state: Available
+  color: '#008000'
+  description: Available for chat
+  brightness: 255
+- state: Busy
+  color: '#FF0000'
+  description: In a meeting or busy
+  brightness: 255
+- state: DoNotDisturb
+  color: '#800080'
+  description: Do not disturb
+  brightness: 255
+- state: Away
+  color: '#FFFF00'
+  description: Away from desk
+  brightness: 255
+- state: BeRightBack
+  color: '#FFA500'
+  description: Be right back
+  brightness: 255
+- state: InACall
+  color: '#0000FF'
+  description: In a call
+  brightness: 255
+- state: InAMeeting
+  color: '#FF00FF'
+  description: In a meeting
+  brightness: 255
+- state: Offline
+  color: '#696969'
+  description: Offline
+  brightness: 255
+- state: PresenceUnknown
+  color: '#D3D3D3'
+  description: Status unknown
+  brightness: 255
+- state: Unknown
+  color: '#FFFFFF'
+  description: Status unknown
+  brightness: 255
+customCommands:
+  colorCommand: AA{R:X2}{G:X2}{B:X2}BB
+  brightnessCommand: CC{BR:X2}DD
+  wakeCommand: ''

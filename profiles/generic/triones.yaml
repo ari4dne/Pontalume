@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=../profile.schema.json
+# UNTESTED: nobody has confirmed this profile on real hardware. Provided as is, no warranty, express or implied.
+# If you test it, say so in a pull request or issue so the untested label can come off.
+name: Triones / HappyLighting (untested)
+description: "UNTESTED. Triones family (BLE name Triones*, HappyLighting app). Provided as is, no warranty, express or implied."
+serviceUuid: 0000ffd5-0000-1000-8000-00805f9b34fb
+characteristicUuid: 0000ffd9-0000-1000-8000-00805f9b34fb
+colorMappings:
+- state: Available
+  color: '#008000'
+  description: Available for chat
+  brightness: 255
+- state: Busy
+  color: '#FF0000'
+  description: In a meeting or busy
+  brightness: 255
+- state: DoNotDisturb
+  color: '#800080'
+  description: Do not disturb
+  brightness: 255
+- state: Away
+  color: '#FFFF00'
+  description: Away from desk
+  brightness: 255
+- state: BeRightBack
+  color: '#FFA500'
+  description: Be right back
+  brightness: 255
+- state: InACall
+  color: '#0000FF'
+  description: In a call
+  brightness: 255
+- state: InAMeeting
+  color: '#FF00FF'
+  description: In a meeting
+  brightness: 255
+- state: Offline
+  color: '#696969'
+  description: Offline
+  brightness: 255
+- state: PresenceUnknown
+  color: '#D3D3D3'
+  description: Status unknown
+  brightness: 255
+- state: Unknown
+  color: '#FFFFFF'
+  description: Status unknown
+  brightness: 255
+customCommands:
+  colorCommand: 56{R:X2}{G:X2}{B:X2}00F0AA
+  wakeCommand: CC2333
+  lampOn: CC2333
+  lampOff: CC2433

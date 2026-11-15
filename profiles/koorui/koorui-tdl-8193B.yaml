@@ -1,0 +1,50 @@
+name: Koorui RGB Light
+description: KOORUI RGB BLE light configuration
+serviceUuid: 0000ffe0-0000-1000-8000-00805f9b34fb
+characteristicUuid: 0000ffe1-0000-1000-8000-00805f9b34fb
+colorMappings:
+- state: Available
+  color: '#008000'
+  description: Available for chat
+  brightness: 255
+- state: Busy
+  color: '#FF0000'
+  description: In a meeting or busy
+  brightness: 255
+- state: DoNotDisturb
+  color: '#800080'
+  description: Do not disturb
+  brightness: 255
+- state: Away
+  color: '#FF7000'
+  description: Away from desk
+  brightness: 255
+- state: BeRightBack
+  color: '#FF7000'
+  description: Be right back
+  brightness: 255
+- state: InACall
+  color: '#0000FF'
+  description: In a call
+  brightness: 255
+- state: InAMeeting
+  color: '#FF00FF'
+  description: In a meeting
+  brightness: 255
+- state: Offline
+  color: '#696969'
+  description: Offline
+  brightness: 255
+- state: PresenceUnknown
+  color: '#D3D3D3'
+  description: Status unknown
+  brightness: 255
+- state: Unknown
+  color: '#FFFFFF'
+  description: Status unknown
+  brightness: 255
+customCommands:
+  colorCommand: A06904{R:X2}{G:X2}{B:X2}0F
+  wakeCommand: A0620101
+  lampOn: A0620101
+  lampOff: A0620100
