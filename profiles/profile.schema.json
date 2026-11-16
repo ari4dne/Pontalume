@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://bleam.app/schemas/profile.schema.json",
-  "title": "BLEam light profile",
-  "description": "A BLEam light profile: which lamp to talk to, which colour each Teams presence state maps to, and the raw bytes to send. This schema is an editor aid; BLEam validates every profile itself when it loads one, and names any problem it finds on the app's Debug Logs tab.",
+  "title": "Pontalume light profile",
+  "description": "A Pontalume light profile: which lamp to talk to, which colour each Teams presence state maps to, and the raw bytes to send. This schema is an editor aid; Pontalume validates every profile itself when it loads one, and names any problem it finds on the app's Debug Logs tab.",
   "type": "object",
   "required": [
     "name",

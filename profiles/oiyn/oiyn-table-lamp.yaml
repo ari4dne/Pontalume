@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=../profile.schema.json
-# BLEam light profile. Settings > Write profile template writes a fully commented
+# Pontalume light profile. Settings > Write profile template writes a fully commented
 # template.yaml beside this file. A profile that fails validation does not appear in
 # the app's profile picker; the Debug Logs tab names what is wrong with it.
 name: Oiyn RGB Table Lamp

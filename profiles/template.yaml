@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# BLEam profile template. Copy this file, rename it, and edit it - the file's
+# Pontalume profile template. Copy this file, rename it, and edit it - the file's
 # `name:` is what the app shows in its profile picker.
 #
 # Every key below is required unless marked optional. A file that breaks any
@@ -41,7 +41,7 @@
 # a working profile are lost the same way.
 # ---------------------------------------------------------------------------
 # yaml-language-server: $schema=./profile.schema.json
-# BLEam light profile. Settings > Write profile template writes a fully commented
+# Pontalume light profile. Settings > Write profile template writes a fully commented
 # template.yaml beside this file. A profile that fails validation does not appear in
 # the app's profile picker; the Debug Logs tab names what is wrong with it.
 name: Custom Light

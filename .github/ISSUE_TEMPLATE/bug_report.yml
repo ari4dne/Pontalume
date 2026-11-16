@@ -1,19 +1,19 @@
 name: 🐞 Bug report
-description: Something in BLEam isn't working as expected.
+description: Something in Pontalume isn't working as expected.
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to report a bug! Please [search existing issues](https://github.com/ari4dne/BLEam/issues) first. If it's already reported, a 👍 or a comment with your details helps just as much.
+        Thanks for taking the time to report a bug! Please [search existing issues](https://github.com/ari4dne/Pontalume/issues) first. If it's already reported, a 👍 or a comment with your details helps just as much.
 
         English is easiest for me, but you're welcome to write in any language.
 
-        **Security or privacy problem?** Please don't post it here. [Report it privately](https://github.com/ari4dne/BLEam/security/advisories/new) instead.
+        **Security or privacy problem?** Please don't post it here. [Report it privately](https://github.com/ari4dne/Pontalume/security/advisories/new) instead.
   - type: input
-    id: bleam-version
+    id: pontalume-version
     attributes:
-      label: BLEam version
+      label: Pontalume version
       placeholder: e.g. 1.0.0
     validations:
       required: true
@@ -60,7 +60,7 @@ body:
     id: what-happened
     attributes:
       label: What happened?
-      description: What you did, and what BLEam or your light did.
+      description: What you did, and what Pontalume or your light did.
     validations:
       required: true
   - type: textarea
@@ -72,11 +72,11 @@ body:
   - type: markdown
     attributes:
       value: |
-        > ⚠️ **Please check before you post.** BLEam tries to remove personal details from its logs, but that clean-up is basic. Before attaching a log or export, look through it and remove any **MAC addresses** (like `A4:C1:38:xx:xx:xx`), device serial numbers, or other unique IDs.
+        > ⚠️ **Please check before you post.** Pontalume tries to remove personal details from its logs, but that clean-up is basic. Before attaching a log or export, look through it and remove any **MAC addresses** (like `A4:C1:38:xx:xx:xx`), device serial numbers, or other unique IDs.
   - type: textarea
     id: diagnostics
     attributes:
-      label: Diagnostic export from BLEam
+      label: Diagnostic export from Pontalume
       description: Open the **Debug Logs** tab, click **Export Logs**, then click **Reveal Exported Log** to open the folder with the file. The export covers up to the last 2 days. Drag the file into this box to attach it.
     validations:
       required: true

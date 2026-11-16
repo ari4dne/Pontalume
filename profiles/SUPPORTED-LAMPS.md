@@ -1,10 +1,10 @@
-# BLEam supported lamps
+# Pontalume supported lamps
 
 Which lamps each profile in `profiles/generic/` is meant to control.
 
 **Every generic profile listed here is untested.** None has been confirmed on real hardware by the maintainer. Entries come from public write-ups by other people; "driven by a source" means that source's author controlled that exact lamp. Profiles are provided as is, with no warranty, express or implied. If you test one, please tell us in a pull request or issue so the untested label can come off.
 
-Don't see your light? See [Add your lamp to BLEam](../guides/add-your-lamp.md).
+Don't see your light? See [Add your lamp to Pontalume](../guides/add-your-lamp.md).
 
 ## [elk-bledom.yaml](generic/elk-bledom.yaml): ELK-BLEDOM / Lotus Lamp X (untested)
 

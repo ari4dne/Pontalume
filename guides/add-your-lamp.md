@@ -1,6 +1,6 @@
-# Add your lamp to BLEam
+# Add your lamp to Pontalume
 
-This guide shows you how to make a *profile* to allow BLEam to talk to your light. Please read the entire guide once before doing it so you know what you are embarking on. If you think this is beyond your technical abilities, you can ask a tech savvy friend to see if she can help you.
+This guide shows you how to make a *profile* to allow Pontalume to talk to your light. Please read the entire guide once before doing it so you know what you are embarking on. If you think this is beyond your technical abilities, you can ask a tech savvy friend to see if she can help you.
 
 This is the advanced route. You capture the light's Bluetooth traffic from an Android phone with `adb`, read the commands in Wireshark, and write them into a YAML file. If your light is in the [supported lights list](../profiles/SUPPORTED-LAMPS.md), import its profile instead. Notes for readers new to this are at the [end](#new-to-this).
 
@@ -8,7 +8,7 @@ This is the advanced route. You capture the light's Bluetooth traffic from an An
 
 ## Will my light work?
 
-Not every light can work with BLEam, and some never will. The current version of BLEam sends fixed bytes with your red, green and blue values (and optionally brightness) filled in, and nothing more. Lights that need more may work in a future version. Your light is probably not supported if:
+Not every light can work with Pontalume, and some never will. The current version of Pontalume sends fixed bytes with your red, green and blue values (and optionally brightness) filled in, and nothing more. Lights that need more may work in a future version. Your light is probably not supported if:
 
 - one byte in each command changes in a way you can't tie to red, green, blue or brightness (a checksum),
 - the bytes look scrambled and change when you repeat the same action (encryption),
@@ -21,11 +21,11 @@ You can only tell once you have a capture (Step 2).
 
 - The light, working with its own Android app.
 - An Android phone and a USB cable.
-- A Windows PC with `adb` ([platform-tools](https://developer.android.com/tools/releases/platform-tools)), [Wireshark](https://www.wireshark.org/) and BLEam.
+- A Windows PC with `adb` ([platform-tools](https://developer.android.com/tools/releases/platform-tools)), [Wireshark](https://www.wireshark.org/) and Pontalume.
 
 ## Step 1: Get the template
 
-In BLEam, go to **Settings**, **Write profile template** and click **Create**. BLEam writes `template.yaml` to your profiles folder (`Documents\BLEam\Profiles`). Copy the file and rename the copy. Its comments describe every field. The same file is in the repo as [template.yaml](../profiles/template.yaml), and [profile.schema.json](../profiles/profile.schema.json) lets an editor like VS Code check your file as you type.
+In Pontalume, go to **Settings**, **Write profile template** and click **Create**. Pontalume writes `template.yaml` to your profiles folder (`Documents\Pontalume\Profiles`). Copy the file and rename the copy. Its comments describe every field. The same file is in the repo as [template.yaml](../profiles/template.yaml), and [profile.schema.json](../profiles/profile.schema.json) lets an editor like VS Code check your file as you type.
 
 ## Step 2: Capture the light's commands
 
@@ -72,14 +72,14 @@ Rules:
 
 - Plain hexadecimal: no `0x`, no `:` or `-`, no text ([note 4](#note-4-hex-and-uuids)).
 - `{BR:X2}` is brightness; `{B:X2}` is always blue.
-- `brightnessCommand` is optional and takes only `{BR:X2}`. BLEam fills brightness in as 0 to 255, so leave the command out if the light's range ends at 100.
+- `brightnessCommand` is optional and takes only `{BR:X2}`. Pontalume fills brightness in as 0 to 255, so leave the command out if the light's range ends at 100.
 - `wakeCommand` is optional, is sent once when the light connects, and takes no placeholders.
 
 Fill in the rest from the template: `name`, both UUIDs, and a color for all ten presence states (`Unknown`, `Available`, `Busy`, `DoNotDisturb`, `Away`, `BeRightBack`, `InACall`, `InAMeeting`, `Offline`, `PresenceUnknown`). The names are case-sensitive and none can be omitted.
 
 ## Step 5: Import and test
 
-In BLEam: **Settings**, **Profiles**, **Import profile**, **Import**, then pick the file. BLEam says at once whether the profile was imported or could not be read. If it could not, the **Debug Logs** tab names each problem. Fix them and import again.
+In Pontalume: **Settings**, **Profiles**, **Import profile**, **Import**, then pick the file. Pontalume says at once whether the profile was imported or could not be read. If it could not, the **Debug Logs** tab names each problem. Fix them and import again.
 
 Then connect the light and choose the new profile, as in the [quick start](quick-start.md). Check every color on the light, including a mid-tone. Swapped colors or washed-out mid-tones point to a different channel order or scale than you captured.
 
@@ -88,13 +88,13 @@ Then connect the light and choose the new profile, as in the [quick start](quick
 - Test it with a real light first.
 - Say the light's name and model. Where you bought it is optional: add it if you want to help others find lights that work, but it can reveal where you live, so share only what you're comfortable with.
 - Make sure the file has no MAC addresses, serial numbers or other device IDs.
-- For credit, add the line `author: Your Name or @github-handle` at the top level of the file, and add it last, once the profile works. BLEam has no author field, so it drops the line if you re-save the profile in the app.
+- For credit, add the line `author: Your Name or @github-handle` at the top level of the file, and add it last, once the profile works. Pontalume has no author field, so it drops the line if you re-save the profile in the app.
 
-Name and place the file as in [Submitting a lamp profile](../CONTRIBUTING.md#submitting-a-lamp-profile), then open a pull request, or use the **Submit a lamp profile** form under [Open a new issue](https://github.com/ari4dne/BLEam/issues/new/choose) if you don't use git. Profiles are shared under [CC0 1.0](../profiles/LICENSE).
+Name and place the file as in [Submitting a lamp profile](../CONTRIBUTING.md#submitting-a-lamp-profile), then open a pull request, or use the **Submit a lamp profile** form under [Open a new issue](https://github.com/ari4dne/Pontalume/issues/new/choose) if you don't use git. Profiles are shared under [CC0 1.0](../profiles/LICENSE).
 
 ## Need help?
 
-Open an [issue](https://github.com/ari4dne/BLEam/issues/new/choose) and pick a template. Leave out Bluetooth addresses and device IDs.
+Open an [issue](https://github.com/ari4dne/Pontalume/issues/new/choose) and pick a template. Leave out Bluetooth addresses and device IDs.
 
 ## New to this?
 

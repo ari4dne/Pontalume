@@ -6,9 +6,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for sharing a profile! Paste it below and I'll add it to the repo, with credit. If you use git, you can [open a pull request](https://github.com/ari4dne/BLEam/blob/main/CONTRIBUTING.md#submitting-a-lamp-profile) instead.
+        Thanks for sharing a profile! Paste it below and I'll add it to the repo, with credit. If you use git, you can [open a pull request](https://github.com/ari4dne/Pontalume/blob/main/CONTRIBUTING.md#submitting-a-lamp-profile) instead.
 
-        See [Submitting a lamp profile](https://github.com/ari4dne/BLEam/blob/main/CONTRIBUTING.md#submitting-a-lamp-profile) for where profiles go and what to check first.
+        See [Submitting a lamp profile](https://github.com/ari4dne/Pontalume/blob/main/CONTRIBUTING.md#submitting-a-lamp-profile) for where profiles go and what to check first.
   - type: input
     id: brand
     attributes:
@@ -44,7 +44,7 @@ body:
     id: credit
     attributes:
       label: Credit (optional)
-      description: The name or GitHub handle to credit. I'll add it to your profile as a top-level `author:` line. (BLEam has no author field and drops this line if a profile is re-saved in the app.) Leave blank to stay anonymous.
+      description: The name or GitHub handle to credit. I'll add it to your profile as a top-level `author:` line. (Pontalume has no author field and drops this line if a profile is re-saved in the app.) Leave blank to stay anonymous.
   - type: textarea
     id: notes
     attributes:
@@ -59,5 +59,5 @@ body:
           required: true
         - label: It contains no MAC addresses, serial numbers, or other device IDs.
           required: true
-        - label: I agree to release this profile under [CC0 1.0](https://github.com/ari4dne/BLEam/blob/main/profiles/LICENSE), so anyone can use it freely.
+        - label: I agree to release this profile under [CC0 1.0](https://github.com/ari4dne/Pontalume/blob/main/profiles/LICENSE), so anyone can use it freely.
           required: true

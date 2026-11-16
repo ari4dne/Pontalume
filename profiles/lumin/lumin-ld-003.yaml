@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=../profile.schema.json
-# BLEam light profile.
+# Pontalume light profile.
 # A file that fails validation will not appear in the app's profile picker.
 name: Lumin LED Lamp
 description: Lumin LED lamp BLE configuration

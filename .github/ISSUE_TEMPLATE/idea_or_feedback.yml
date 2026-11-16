@@ -5,20 +5,20 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for sharing your thoughts! Please [search existing issues](https://github.com/ari4dne/BLEam/issues) first. If someone has already suggested it, a 👍 or a comment helps just as much.
+        Thanks for sharing your thoughts! Please [search existing issues](https://github.com/ari4dne/Pontalume/issues) first. If someone has already suggested it, a 👍 or a comment helps just as much.
 
         English is easiest for me, but you're welcome to write in any language.
   - type: textarea
     id: idea
     attributes:
-      label: What would you like BLEam to do?
+      label: What would you like Pontalume to do?
     validations:
       required: true
   - type: textarea
     id: why
     attributes:
       label: Why would it help you?
-      description: Tell me how you use BLEam, and what this would change for you.
+      description: Tell me how you use Pontalume, and what this would change for you.
     validations:
       required: true
   - type: textarea
