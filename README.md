@@ -3,7 +3,11 @@
 This repo is for **feedback on Pontalume, a Windows app from the Microsoft Store**.
 Use it to report bugs, suggest ideas, and share lamp profiles.
 
-**Coming soon to the Microsoft Store.**
+<a href="https://get.microsoft.com/installer/download/9NP51N6NRX4M?referrer=appbadge&cid=github-feedback" target="_self" >
+	<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
+</a>
+
+Or [get Pontalume on the Microsoft Store](https://apps.microsoft.com/detail/9NP51N6NRX4M).
 
 ## What Pontalume does
 
